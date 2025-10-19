@@ -7,47 +7,92 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="container">
     <header id="home" class="site-header" role="banner">
       <h1>Alex’s Web Portfolio</h1>
       <nav aria-label="Primary" class="site-nav">
         <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="main" role="main">
+      <section id="hero" aria-labelledby="hero-title">
+        <h2 id="hero-title">Hello — I’m Alex</h2>
+        <p class="lead">A quiet, focused web developer who builds accessible, maintainable interfaces. I solve problems with simple, thoughtful design and enjoy collaborating with small teams and community projects.</p>
+      </section>
+
       <section id="about" aria-labelledby="about-title">
         <h2 id="about-title">About Alex</h2>
-        <p>Alex is an introverted web developer who builds thoughtful, accessible interfaces. They focus on clarity, usability, and small teams or community projects that make an impact.</p>
+        <p>Alex is an introverted web developer who builds thoughtful, accessible interfaces. They focus on clarity, usability, and projects that help small teams and communities. Alex enjoys clean design, progressive enhancement, and learning new front-end techniques.</p>
+        <p>Skills: HTML, CSS, JavaScript, accessibility, responsive design.</p>
       </section>
+
       <section id="portfolio" aria-labelledby="portfolio-title">
         <h2 id="portfolio-title">Portfolio</h2>
-        <ul>
-          <li>
-            <h3>Project One — Taskly</h3>
-            <p>A minimal accessible task manager focusing on keyboard navigation and clarity.</p>
-          </li>
-          <li>
-            <h3>Project Two — LandingKit</h3>
-            <p>Reusable responsive landing page components with dark and light themes.</p>
-          </li>
-        </ul>
+        <div class="projects">
+          <article class="project" aria-labelledby="p1-title">
+            <h3 id="p1-title">Taskly</h3>
+            <p>Minimal accessible task manager with keyboard-first UX and focus on simplicity.</p>
+            <p class="links"><a href="#" aria-label="Taskly demo">Demo</a> · <a href="#" aria-label="Taskly source">Source</a></p>
+          </article>
+
+          <article class="project" aria-labelledby="p2-title">
+            <h3 id="p2-title">LandingKit</h3>
+            <p>Responsive landing page component library with light/dark themes and reusable blocks.</p>
+            <p class="links"><a href="#" aria-label="LandingKit demo">Demo</a> · <a href="#" aria-label="LandingKit source">Source</a></p>
+          </article>
+
+          <article class="project" aria-labelledby="p3-title">
+            <h3 id="p3-title">Community Map (Fictional)</h3>
+            <p>Interactive map to help volunteers find local community projects and events.</p>
+            <p class="links"><a href="#" aria-label="Community Map placeholder">Placeholder</a></p>
+          </article>
+        </div>
       </section>
+
       <section id="blog" aria-labelledby="blog-title">
         <h2 id="blog-title">Blog</h2>
-        <article>
-          <h3>Thinking in Components</h3>
-          <p>Short excerpt: Why building small, reusable components makes development simpler and more maintainable.</p>
+        <article class="post" aria-labelledby="post1-title">
+          <h3 id="post1-title">Thinking in Components</h3>
+          <p>Excerpt: Why breaking UI into small, testable components speeds up development and maintenance.</p>
         </article>
+
+        <article class="post" aria-labelledby="post2-title">
+          <h3 id="post2-title">Designing for Quiet Users</h3>
+          <p>Excerpt: Building experiences that help introverted users feel comfortable and productive online.</p>
+        </article>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>Email: <a href="mailto:alex@example.com">alex@example.com</a></p>
+        <p>GitHub: <a href="https://github.com/St10490168" target="_blank" rel="noopener">github.com/St10490168</a></p>
+        <p>LinkedIn: <a href="#" target="_blank" rel="noopener">Alex on LinkedIn</a></p>
       </section>
     </main>
 
-    <footer role="contentinfo">
-      <p>Contact: alex@example.com · <a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
-      <p>© 2025 Alex</p>
+    <footer role="contentinfo" class="site-footer">
+      <p>© 2025 Alex — Built with accessibility and simplicity in mind.</p>
     </footer>
   </div>
+
+  <script>
+    // small script to ensure focus outline after keyboard navigation
+    (function(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
 </body>
 </html>
